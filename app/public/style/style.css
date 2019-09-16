@@ -1,37 +1,57 @@
-.container{
-    margin: 40px;
-    font-family: Arial, Helvetica, sans-serif;
-    text-align: center;
+body{
+    /* page color */
+    background-color: #EAFFF5
+}
 
+.friendFinderContainer{
+    margin: 50px;
+    /* from top */
+    font-family: Arial, Helvetica, sans-serif;
+    /* font */
+    /* container color */
+    border-radius: 90%;
+    /* curves on container */
 }
 
 .jumbotron{
     text-align: center;
     font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif;
-    background-color: #E6B89C;
-    
+    background-color: whitesmoke;
+    /* padding-left: 50px; */
+}
 
+section.jumbotron{
+    padding-right: 60px;
+    padding-left: 60px;
 }
 
 .fa-facebook-square:before{
     color:  #EAD2AC;
+
 }
 
 .jumbotron h1, 
 .jumbotron .h1{
-    color: gray;
+    color: #FF686B
     text-align: center;
 }
 
 
-body {
-    background-color: #EAD2AC;
+#surveryButton{
+    align-content: right;
 }
 
 h2{
     text-align: match-parent;
-    color: grey;
+    color: #FFA69E;
+    font-size: 32px;
 }
+
 hr{
     color: #4281A4;
+}
+
+button{
+    background-color: red;
+
 }
