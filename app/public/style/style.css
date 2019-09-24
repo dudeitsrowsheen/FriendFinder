@@ -30,16 +30,15 @@ section.jumbotron{
 
 }
 
-.jumbotron h1, 
-.jumbotron .h1{
+.jumbotron{
     color: #FF686B
-    text-align: center;
+
 }
 
-
+/* 
 #surveryButton{
     align-content: right;
-}
+} */
 
 h2{
     text-align: match-parent;
