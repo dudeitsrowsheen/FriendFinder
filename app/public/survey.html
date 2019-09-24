@@ -1,4 +1,4 @@
-<html lang="en">
+d<html lang="en">
 
 <head>
     <meta charset="utf-8">
@@ -234,6 +234,8 @@
             <button id="submitBtn" type="submit" class="btn btn-success btn-lg">Submit</button>
         </div>
 
+        <!-- //Bootstrap modal when submitted -->
+
         <div id="bestFriendModal" class="modal fade" role="dialog">
             <div class="modal-dialog"></div>
             <div class="modal-content">
@@ -250,11 +252,68 @@
                 <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
             </div>
         </div>
-    </div>
 
+        <footer>
+            <div class="conatiner">
+                <a href="/api/friends"></a>
+                <span></span>
+                <a href="https://github.com/dudeitsrowsheen/FriendFinder">GitHub Repo</a>
+            </div>
 
+        </footer>
 
-    <script src="serv" async defer></script>
+        <script src="https://code.jquery.com/jquery-3.2.1.min.js"
+            integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4=" crossorigin="anonymous"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+
 </body>
 
 </html>
+
+<script type="text/javascript">
+    $("#submitBtn").on("click", function (event) {
+        event.preventDefault();
+
+        var valid = true;
+
+        if ($("#name").val() === "" || $("#photo").val() === "") {
+            valid = false;
+        } else if ($("#question1").val() === "empty" || $("question2").val() === "empty" || $("#question4").val() === "empty" || $("#question5").val() === "empty" || $("#question6").val() === "empty" || $("#question7").val() === "empty" || $("#question8").val() === "empty" || $("#question9").val() === "empty" || $("#question10").val() === "empty") {
+            valid = false;
+        }
+        if (valid === true) {
+            var NewUser = {
+                name: $("#name").val().trim(),
+                photo: $("#photo").val().trim(),
+                scores: [
+                    $("#question1").val(),
+                    $("#question2").val(),
+                    $("#question3").val(),
+                    $("#question4").val(),
+                    $("#question5").val(),
+                    $("#question6").val(),
+                    $("#question7").val(),
+                    $("#question8").val(),
+                    $("#question9").val(),
+                    $("#question10").val()
+                ]
+
+            };
+
+            var currentURL = window.location.origin;
+
+            // posting after response with AJAX
+            $.post(currentURL + "/api/freinds", newUser, function (data) {
+                $("#bestFriends").text(data.name);
+                $("#bestFriendPhoto").attr("src", data.photo);
+                $("#bestFriendModal").modal("toggle");
+            });
+        } else {
+
+            alert("Finish survey before submit");
+        }
+    });
+
+
+
+</script>
